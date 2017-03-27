@@ -1,0 +1,27 @@
+class Util {
+    constructor() {
+
+    }
+
+    empty(obj) {
+        const _ = require("underscore");
+        let isEmpty = false;
+
+        if (obj == undefined || (_.isEmpty(obj) && typeof(obj) != "number") || this.isBlank(obj)
+            || (typeof(obj) == "number" && isNaN(obj))) {
+            //undefined check will check null/undefined values and isEmpty checks empty object/collections
+            isEmpty = true;
+        } else {
+            isEmpty = false;
+        }
+        return isEmpty;
+    }
+
+    isBlank(obj) {
+        if (obj != undefined && typeof(obj) == "string" && obj.trim().length === 0) {
+            return true;
+        }
+        return false;
+    }
+}
+module.exports = new Util();
